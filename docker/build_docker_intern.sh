@@ -61,6 +61,6 @@ cat docker_build/$DOCKER_TAG/Dockerfile
 echo "------------------"
 
 echo [EXEC] docker build -t cvmldocker:5000/intern/$MYNAME-$IMAGE_NAME docker_build/$DOCKER_TAG
-docker build -t cvmldocker:5000/intern/$MYNAME docker_build/$DOCKER_TAG
+docker build -t cvmldocker:5000/intern/$MYNAME-$IMAGE_NAME docker_build/$DOCKER_TAG
 echo [EXEC] docker push cvmldocker:5000/intern/$MYNAME-$IMAGE_NAME
 docker push cvmldocker:5000/intern/$MYNAME-$IMAGE_NAME
