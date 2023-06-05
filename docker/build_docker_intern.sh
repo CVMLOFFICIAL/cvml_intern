@@ -1,12 +1,12 @@
 # Example: bash build_docker_intern.sh gildong pytorch/pytorch:1.8.1-cuda10.2-cudnn7-runtime
 # Args: bash build_docker.sh {your name} {image tag}
 # Argument link
-MYNAME=$1
+MYNAME=`whoami`
 MYUNAME=`whoami`
 MYGNAME=cvml_intern
 MYUID=`id -u`
 MYGID=2501
-DOCKER_TAG=$2
+DOCKER_TAG=$1
 BUILD_DATE=`date`
 # Integrity check
 ## host file
