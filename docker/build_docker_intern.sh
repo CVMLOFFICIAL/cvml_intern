@@ -2,9 +2,9 @@
 # Args: bash build_docker.sh {your name} {image tag}
 # Argument link
 MYNAME=$1
-MYUNAME=user_intern
+MYUNAME=`whoami`
 MYGNAME=cvml_intern
-MYUID=4001
+MYUID=`id -u`
 MYGID=2501
 DOCKER_TAG=$2
 BUILD_DATE=`date`
@@ -49,8 +49,6 @@ RUN groupadd -r -g $MYGID cvml_intern
 RUN adduser $MYUNAME cvml_intern
 USER $MYUID:$MYGID
 ENV PATH=\"\${PATH}:/home/$MYUNAME/.local/bin\"
-RUN mkdir ~/.pip
-RUN printf \"[global]\nindex-url=http://ftp.daumkakao.com/pypi/simple\ntrusted-host=ftp.daumkakao.com pypi.org\nextra-index-url=http://pypi.org/simple\" > ~/.pip/pip.conf
 ENV TERM=\"xterm-256color\"
 ">docker_build/$DOCKER_TAG/Dockerfile
 
