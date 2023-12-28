@@ -39,6 +39,7 @@ echo "FROM $DOCKER_TAG
 RUN echo '[ ! -z \"$TERM\" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
 RUN echo \"\\033[1;37;43mBUILD DATE: $BUILD_DATE \\nIMAGE: $DOCKER_TAG\\033[0;0m\" > /etc/motd
 RUN sed -i -e 's/http:\/\/archive\.ubuntu\.com/http:\/\/kr\.archive\.ubuntu\.com/' /etc/apt/sources.list
+RUN mkdir ~/.gnupg && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
 RUN apt-get update
 RUN apt-get install -y gnupg2
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
